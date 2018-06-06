@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Insside</title>
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <style>
+            @font-face{
+            font-family:주아체;
+            src:url("주아체.ttf");
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <div id="bg">
+                <div class="title">
+                    <div class="container">
+                        <div class="top-bar">
+                            <a href="#join_form" id="join_pop" style="float:left;margin-left:1%">회원가입</a>
+                                <a href="main.html">
+                                    <strong> INSIDE </strong>
+                                </a>
+                            <a href="#login_form" id="login_pop" style="float:right;margin-right:1%">로그인</a>
+                        </div>
+                        <header>
+                            <h1><br><br><span>INSIDE</span></h1>
+                        </header>
+                    </div>
+                </div>
+                <div id="main">
+                    <div class="inmainodd">
+                        A:align
+                    </div>
+                    <div class="inmaineven">
+                        B:align
+                    </div>
+                    <div class="inmainodd">
+                        C:align
+                    </div>
+                    <div class="inmaineven">
+                        D:align
+                    </div>
+                    <div class="null_panel">
+                    </div>
+                </div>
+            </div>
+            <a href="#x" class="overlay" id="login_form"></a>
+            <div class="popup">
+                <form action="login.html" method="post" style="max-width:auto;max-height:400px;">
+                    <div class="wrapper">
+                        <div class="login_box">
+                            <div class="logmain">
+                                <h1><strong> INSIDE </strong></h1>
+                                <br><a>로그인</a>
+                            </div>
+                            <div class="input_login">
+                                <label><b>아이디</b></label><br>
+                                <input type="text" placeholder="아이디를 입력하세요"  name="uname" required>
+                            </div>	
+                            <div class="input_login">
+                                <label><b>비밀번호</b></label><br>
+                                <input type="password" placeholder="비밀번호를 입력하세요" name="psw" required>
+                            </div>
+                            <div>
+                                <input type="submit" value="로그인" class="submit"/>
+                                <a href="register.html"><input type="button" value="회원가입" class="submit"/></a>
+                            </div>	
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <a href="#x" class="overlay" id="join_form"></a>
+            <div class="popup">
+                <form action="register.html" method="post" style="max-width:auto;height:650px;">
+                    <div class="login_box">
+                        <div class="logmain">
+                            <h1><strong>INSIDE</strong></h1>
+                            <br><a>회원가입</a>
+                        </div>  
+                        <div class="input_login">
+                            <label><b>아이디</b></label> <input type="text" name="userid" required autofocus>
+                        </div>
+                        <div class="input_login">
+                            <label><b>비밀번호 </b></label> <input type="password" name="userpw" required>
+                        </div>
+                        <div class="input_login">
+                            <label><b>이름 </b></label> <input type="text" name="name" required>
+                        </div>
+                        <div class="input_login">
+                            <label><b>전화번호 </b></label>
+                            <select name="tel1" required>
+                            <option value="010">010</option>
+                            <option value="016">016</option>
+                            <option value="010">019</option>
+                            </select>
+                            -<input type="text" name="tel2" maxlength="4" size="10">
+                            -<input type="text" name="tel3" maxlength="4" size="10">
+                        </div>
+                        
+                        <div class="input_login">
+                            <label><b>성별</b></label>
+                                <input type="radio" name="gender" value="man"><a>남자</a>
+                                <input type="radio" name="gender" value="woman"><a>여자</a>
+                            <br>
+                        </div>
+                        <div class="input_login">
+                            <label><b>학교명 </b></label> <input type="text" name="school" size="15" required>
+                            <label><b>학교종류 </b></label>
+                            <select name="schooltype">
+                            <option value="low">초등학교</option>
+                            <option value="middle">중학교</option>
+                            <option value="high">고등학교</option>
+                            <option value="univer">대학교</option>
+                            </select>
+                        </div>
+                        <div class="input_login">
+                            <label><b>학년 </b></label>
+                            <select name="grade">
+                                <option value="1"> 1 </option>
+                                <option value="2"> 2 </option>
+                                <option value="3"> 3 </option>
+                                <option value="4"> 4 </option>
+                                <option value="5"> 5 </option>
+                                <option value="6"> 6 </option>
+                            </select>
+                            <label><b>학과 </b></label> <input type="text" name="lesson">
+                        </div>
+                        <div class="input_login">
+                            <label><b>지역 </b></label>
+                            <select name="location">
+                                <option value="서울">서울특별시</option>
+                                <option value="경기">부산광역시</option>
+                                <option value="충북">대구광역시</option>
+                                <option value="충남">인천광역시</option>
+                                <option value="전북">광주광역시</option>
+                                <option value="전남">대전광역시</option>
+                                <option value="제주">경기도</option>
+                                <option value="제주">강원도</option>
+                                <option value="제주">충청북도</option>
+                                <option value="제주">충청남도</option>
+                                <option value="제주">전라북도</option>
+                                <option value="제주">경상북도</option>
+                                <option value="제주">경상남도</option>
+                                <option value="제주">제주특별자치도</option>
+                            </select>
+                        </div>
+                        <input type="submit" value="회원가입하기" class="submit">
+                    </div>
+                </form>
+            </div>
+        </center>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" type="text/css" href="logstyle.css" />
+  <title>정보수정</title>
+<style>
+  	@font-face{
+	font-family:주아체;
+	src:url("주아체.ttf");
+  }
+
+#myContainer {
+  width:100%;
+  height:auto;
+  position: relative;
+}
+#myAnimation {
+  width:200px;
+  height:200px;
+  position: relative;
+  background : url(하트.png)
+}
+  </style>
+</head>
+<body>
+<p>
+      <button onclick="myMove()">좋아요!</button> 
+  </p>
+
+  <div id ="myContainer">
+      <div id ="myAnimation"></div>
+      </div>
+
+  <script>
+      function myMove() {
+        var elem = document.getElementById("myAnimation");   
+        var top = 800;
+        var left= 300;
+        var id = setInterval(frame,1);
+        function frame() {
+          if (top < -100) {
+            clearInterval(id);
+          } else {
+            top--;
+            elem.style.top = top + 'px'; 
+            elem.style.left = left; 
+          }
+        }
+      }
+      </script>
+</body>
+</html>

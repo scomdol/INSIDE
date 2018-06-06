@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="UTF-8" />
+        <title>남자친구</title>
+        <link rel="stylesheet" type="text/css" href="../style.css" />
+		<style>
+			@font-face{
+			font-family:주아체;
+			src:url("../주아체.ttf");
+			}
+		</style>
+    </head>
+    <body>
+        <div class="container">
+			<!-- 상단바 -->
+            <div class="top-bar">
+                <a href="/">
+                    <strong> INSIDE </strong>
+                </a>
+                <span class="login">
+                    <% 
+                    if(sess == null){ %>
+                      <a onClick="window.open('/auth/login','new','resizable=no,toolbar=no,menubar=no,location=no,directories=no,status=no,top=80,left=200,width=450,height=500,scrollbars=no');">
+                        <strong>로그인</strong>
+                      </a>
+                    <%} %>
+                    <%if(sess != null){ %>
+                      <%= sess %> 님 환영합니다.
+                      <br>
+                      <a href="/auth/logout">로그아웃</a>
+                      <%} %>
+                </span>
+            </div>
+			<!--상단바 끝-->
+			<header>
+				<span>남자친구를 찾아보자!</span>
+				<h1><span>INSIDE</span></h1>
+			</header>
+			
+			<section>
+				<ul class="thumbnail">
+        
+            <% if(rows == "" || rows == null){ %>
+              목록이 없습니다.
+            <%  } else{ %>
+              <%for(var i =0; i < count; i++){ %>
+                <li>
+                    <a onClick="window.open('man/<%= rows[i].iuser_idx %>','new','resizable=no,toolbar=no,menubar=no,location=no,directories=no,status=no,top=80,left=200,width=550,height=550,scrollbars=no');">
+                      <img src="/profile.png" />
+                      <div>
+                        <span> <%= rows[i].iuser_name %> </span>
+                      </div>
+                    </a>
+                  </li>
+            <% } %>   
+           <%  } %>
+        </ul>
+      </section>
+      <div class="b">
+          <article class="subm">
+              <form action="man/add" method="post">
+                <input type="submit" value="등록하기" onclick="return add();" style="font-size: 45px; background-color: #4CAF50; border-radius: 12px; padding: 32px 16px;">
+                <input type="hidden" id="comment" name="comment" >
+              </form> 
+          </article>
+        </div>
+        </div>
+
+        <script>
+            function add(params) {
+              var msg = prompt('나를 소개할 한줄소개를 적어주세요', '여기에 !');
+              var r = confirm("내 프로필의 정보로 등록됩니다! 등록하시겠습니까?");
+              if (r == true) {
+                  document.getElementById('comment').value = msg;
+                  return true ;
+              } else {
+                  return false;
+              }
+            }
+            </script>
+    </body>
+</html>

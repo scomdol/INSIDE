@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" type="text/css" href="/logstyle.css" />
+  <title>회원정보</title>
+  <style>
+  	@font-face{
+	font-family:주아체;
+	src:url("주아체.ttf");
+  }
+  #myContainer {
+    width:100%;
+    height:auto;
+    position: relative;
+  }
+  #myAnimation {
+    width:200px;
+    height:200px;
+    position: relative;
+    background : url(/heart.png)
+  }
+  </style>
+</head>
+<body>
+  <form action="<!-- 서버에서 처리 -->" method="post">
+  <div class="login_box">
+	  <div class="logmain">
+		  <h1><strong>INSIDE</strong></h1>
+	  </div> 
+	  <div class="apro">
+		<div class="profile">
+			<div class="frame">
+				<div class="img">
+					<img src="/profile.png"/>
+				</div>
+			</div>
+		</div>
+		
+		<div class="input_login2">
+			<label><b>이름 :<%= rows[0].iuser_name %> </b></label> 
+		</div>
+		<div class="input_login2">
+			<label><b>성별 : <%= rows[0].iuser_gender %></b></label>
+		</div>
+		<div class="input_login2">
+			<label><b>전화번호 : <%= rows[0].iuser_tel %> <br> </b></label>
+		</div>
+	  </div>
+		<div class="layout">
+		<div class="input_login">
+			<label><b>학교 : <%= rows[0].iuser_school %> <br> </b></label>
+			<label><b>학교종류 : <%= rows[0].iuser_schooltype %> <br> </b></label>
+		</div>
+		<div class="input_login">
+			<label><b><%= rows[0].iuser_grade %>학년 </b></label><!--몇 학년인지 나와야함-->
+			<label><b><%= rows[0].iuser_lesson %>과 </b></label>
+		</div>
+		<div class="input_login">
+			<label><b>지역 : <%= rows[0].iuser_location %> </b></label>
+		</div>
+    </div>
+    <% if(rows[0].iuser_gender == "남자"){ %>
+      <div class="input_login">
+          <label><b>한줄소개 :  <%= rows[0].ifman_comment %></b></label>
+        </div>
+        <div class="input_login">
+          <label><b><%= rows[0].ifman_like %> 명이 좋아요! </b></label>
+        </div>
+   <% }
+   else{ %>
+    <div class="input_login">
+        <label style="color: red;"><b>한줄소개 :  <%= rows[0].ifwoman_comment %></b></label>
+      </div>
+      <div class="input_login">
+        <label style="color: red;"><b><%= rows[0].ifwoman_like %> 명이 좋아요!!!! </b></label>
+      </div>
+      
+  <% } %> 
+
+
+
+  </div>
+  </form>
+<br><br><br>
+<p>
+    <button onclick="myMove()">좋아요!</button> 
+</p>
+
+<div id ="myContainer">
+    <div id ="myAnimation"></div>
+    </div>
+
+<script>
+    function myMove() {
+      var elem = document.getElementById("myAnimation");   
+      var top = 800;
+      var left= 300;
+      var id = setInterval(frame,1);
+      function frame() {
+        if (top < -100) {
+          clearInterval(id);
+        } else {
+          top--;
+          elem.style.top = top + 'px'; 
+          elem.style.left = left; 
+        }
+      }
+    }
+    </script>
+</body>
+</html>
